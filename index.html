@@ -8,6 +8,8 @@
 </head>
 
 <body>
+			<div class="main">
+
 			<nav>
 				<ul class="navItems">
 					<li class="nav-1"><a href="#">View Music</a></li>
@@ -18,7 +20,6 @@
 						<li><strong>|</strong></li>
 				</ul>
 			</nav>
-			<div class="main">
 				<article class="controls">
 					<label for="">Song length: <input type="range"></label>
 					<label for="artist">
@@ -38,16 +39,20 @@
 						</select>
 					</label>
 				
-					<label for="genre">
-						Genre:
-						<label for="rock"><input type="checkbox" name="rock" value="rock">Rock</label>
-						<label for="classical"><input type="checkbox" name="classical" value="classical">Pop</label>
-						<label for="blues"><input type="checkbox" name="blues">Blues</label>
-						<label for="classical"><input type="checkbox" name="classical">Classical</label>
-						<label for="jazz"><input type="checkbox" name="jazz">Jazz</label>
-						<label for="hipHop"><input type="checkbox" name="hipHop" value="hipHop">Hip Hop</label>
-				
-					</label>
+					<label for="genre">Genre:</label>
+					 <section class="checkGroup">
+						<section class="check1">
+							<label for="rock"><input type="checkbox" name="rock" value="rock">Rock</label>
+							<label for="classical"><input type="checkbox" name="classical" value="classical">Pop</label>
+							<label for="blues"><input type="checkbox" name="blues">Blues</label>
+						</section>
+						<section class="check2">
+							<label for="classical"><input type="checkbox" name="classical">Classical</label>
+							<label for="jazz"><input type="checkbox" name="jazz">Jazz</label>
+							<label for="hipHop"><input type="checkbox" name="hipHop" value="hipHop">Hip Hop</label>
+						</section>
+					 </section>
+					<button type="">Filter</button>
 				</article>
 				<article class="mainBody">
 					<section>
