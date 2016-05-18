@@ -1,0 +1,49 @@
+html {
+	margin: 10px;
+}
+
+nav {
+	border: 2px solid black;
+	background: #FFB4B0;
+	height: 53px;
+	width: 95%;
+}
+
+.navItems li {
+	list-style: none;
+	float: left;
+	padding: 5px;
+}
+
+.controls {
+	display: inline-block;
+	background: #4DD7FA;
+	border: 2px solid black;
+	height: 372px;
+	width: 185px;
+}
+
+.mainBody {
+	display: inline-block;
+	background:  #FEFAC0;
+	border: 2px solid black;
+	width: 597px;
+	height: 372px;
+	padding-left: 20px;
+}
+
+.controls label {
+	display: block;
+}
+
+.mainBody p {
+	display: inline-block;
+	line-height: .3;
+}
+
+p.strong {
+	display: block;
+	font-weight: 900;
+	font-size: 1.3em;
+	color: #785616;
+}
