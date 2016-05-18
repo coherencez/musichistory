@@ -72,6 +72,10 @@ p.strong {
 	width: 125px;
 }
 
+.selectGroup {
+	margin: 0 20px;
+}
+
 .check1 {
 	display: inline-block;
 	width: 47.5%;
@@ -92,10 +96,13 @@ p.strong {
 	margin: auto;	
 	width: 90px;
 	font-size: 1.2em;
-	margin-top: 20px;
 }
 
 label[for=genre] {
 	margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+label[for=songlength] {
+	margin: 5px 0 5px 25px;
 }
