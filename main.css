@@ -1,8 +1,3 @@
-html {
-	margin: 10px;
-	padding: 10px;
-}
-
 .main {
 	height: 660px;
 	width:  960px;
@@ -16,6 +11,10 @@ nav {
 	height: 53px;
 	width: 96%;
 	margin: 5px;
+}
+
+.navItems {
+	margin-bottom: 150px;	
 }
 
 .navItems li {
@@ -68,13 +67,14 @@ p.strong {
 }
 
 .controls select {
+	border: 2px solid black;
 	display: block;
-	width: 125px;
+	width: 85%;
 }
-
+/*
 .selectGroup {
 	margin: 0 20px;
-}
+}*/
 
 .check1 {
 	display: inline-block;
@@ -91,11 +91,14 @@ p.strong {
 }
 
 .controls button {
+	border: 2px solid black;
+	border-radius: 5px;
 	display: block;
 	text-align: center;
 	margin: auto;	
-	width: 90px;
-	font-size: 1.2em;
+	width: 50%;
+	height: 25px;
+	font-size: .9em;
 }
 
 label[for=genre] {
@@ -104,5 +107,10 @@ label[for=genre] {
 }
 
 label[for=songlength] {
-	margin: 5px 0 5px 25px;
+	
+}
+
+label[for=songlength] > input {
+	display: block;
+	width: 85%;
 }
