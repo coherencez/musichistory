@@ -2,6 +2,7 @@ body{
 	font-family: sans-serif;
 }
 
+
 .main {
 	display: flex;
 	flex-flow: row wrap;
@@ -10,13 +11,12 @@ body{
 nav {
 	border: 2px solid black;
 	background: #FFB4B0;
-	height: 53px;
+	height: 45px;
 	width: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
-	right: 0;
-	box-sizing: border-box;
+	z-index: 100;
 }
 
 .navItems {
@@ -79,7 +79,7 @@ p.strong {
 .controls {
 	background: #4DD7FA;
 	border: 2px solid black;
-	width: 22%	
+	width: 20%	
 }
 
 .controls label {
@@ -94,23 +94,10 @@ p.strong {
 	display: block;
 	width: 85%;
 }
-/*
-.selectGroup {
-	margin: 0 20px;
-}*/
-
-.check1 {
-	display: inline-block;
-	width: 47.5%;
-}
-
-.check2 {
-	display: inline-block;
-	width: 47.5%;
-}
 
 .checkGroup {
-	margin: 0 20px;
+	display: flex;
+	justify-content: center;
 }
 
 .controls button {
@@ -146,4 +133,32 @@ label[for=songlength] > input {
 
 .songSection p {
 	margin-left: 2%;
+}
+
+.addView {
+	width: 30%;
+	display: flex;
+	flex-flow: column nowrap;
+	text-align: center;
+	border: 3px solid #A33537;
+	background: #4DD7FA;
+}
+
+.addView input {
+	display: block;
+	width: 40%;
+	margin: 5% auto;
+	border: none;
+	height: 25px;
+	background: #E3E3E3;
+}
+
+.addView button {
+	width: 50%;
+	margin: 2% auto;
+	height: 35px;
+}
+
+.hidden {
+	display: none;
 }

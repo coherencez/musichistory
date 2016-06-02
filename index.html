@@ -12,56 +12,63 @@
 
 			<nav>
 				<ul class="navItems">
-					<li class="nav-1"><a href="#">List View</a></li>
-					<li class="nav-2"><a href="#">Add Music</a></li>
+					<li class="nav-1"><a href="#" id="listViewLink">List View</a></li>
+					<li class="nav-2"><a href="#" id="addMusicLink">Add Music</a></li>
 					<li class="nav-3"><a href="#">Profile</a></li>
 				</ul>
 			</nav>
-			
+
 				<div class="bodyWrap">
-					<article class="controls">
-						<label for="songlength">Song length: <input type="range" name="songlength"></label>
-						<section class="selectGroup">
-							<label for="artist">
-								Artist:
-								<select name="artist" id="">
-									<option value="">Blah</option>
-									<option value="">Blah</option>
-									<option value="">Blah</option>
-								</select>
-							</label>
-							<label for="album">
-								Album:
-								<select name="album" id="">
-									<option value="">Blah</option>
-									<option value="">Blah</option>
-									<option value="">Blah</option>
-								</select>
-							</label>
-						</section>
-					
-						<label for="genre">Genre:</label>
-						 <section class="checkGroup">
-							<section class="check1">
-								<label for="rock"><input type="checkbox" name="rock" value="rock">Rock</label>
-								<label for="classical"><input type="checkbox" name="classical" value="classical">Pop</label>
-								<label for="blues"><input type="checkbox" name="blues">Blues</label>
-							</section>
-							<section class="check2">
-								<label for="classical"><input type="checkbox" name="classical">Classical</label>
-								<label for="jazz"><input type="checkbox" name="jazz">Jazz</label>
-								<label for="hipHop"><input type="checkbox" name="hipHop" value="hipHop">Hip Hop</label>
-							</section>
-						 </section>
-						<button type="">Filter</button>
-					</article>
-					<article id="mainBody" class="mainBody">
-						<!-- output from js here -->
-					</article>
+						<article class="addView hidden" id="addView">
+							<h3>Add Songs</h3>
+							<label for="songName" id="input-1">Song Name:&nbsp;<input type="text" name="songName"></label>
+							<label for="artist" id="input-2">Artist:&nbsp;<input type="text" name="artist"></label>
+							<label for="album" id="input-3">Album:&nbsp;<input type="text" name="album"></label>
+							<label for="genre" id="input-4">Genre:&nbsp;<input type="text" name="genre"></label>
+							<button id="addSongsButton">Add Song</button>
+						</article>
+
+
+					<article class="controls listview">
+									<label for="songlength">Song length: <input type="range" name="songlength"></label>
+									<section class="selectGroup">
+										<label for="artist">
+											Artist:
+											<select name="artist" id="">
+												<option value="">Blah</option>
+												<option value="">Blah</option>
+												<option value="">Blah</option>
+											</select>
+										</label>
+										<label for="album">
+											Album:
+											<select name="album" id="">
+												<option value="">Blah</option>
+												<option value="">Blah</option>
+												<option value="">Blah</option>
+											</select>
+										</label>
+									</section>
+								
+									<label for="genre">Genre:</label>
+									 <section class="checkGroup">
+										<section class="check1">
+											<label for="rock"><input type="checkbox" name="rock" value="rock">&nbsp;Rock</label>
+											<label for="classical"><input type="checkbox" name="classical" value="classical">&nbsp;Pop</label>
+											<label for="blues"><input type="checkbox" name="blues">&nbsp;Blues</label>
+										</section>
+										<section class="check2">
+											<label for="classical"><input type="checkbox" name="classical">&nbsp;Classical</label>
+											<label for="jazz"><input type="checkbox" name="jazz">&nbsp;Jazz</label>
+											<label for="hipHop"><input type="checkbox" name="hipHop" value="hipHop">&nbsp;Hip Hop</label>
+										</section>
+									 </section>
+									<button type="">Filter</button>
+								</article>
+								<article id="mainBody" class="mainBody listview">
+								</article>
+					</div>
 				</div>
-
-
-		</div>
 <script src="songs.js"></script>
 </body>
 </html>

@@ -29,7 +29,6 @@ var songs = [
 		album: 'Nonya',
 		genre: 'Rock'
 	},
-
 ];
 
 songs.forEach(function (songsObj) {
@@ -44,8 +43,33 @@ songs.forEach(function (songsObj) {
 								<p><strong>|</strong></p>
 							<p>${songsObj.genre}</p>
 						</section>`;
-
 });
+
+
+
+function hideListView () {
+	let listViewClasses = document.getElementsByClassName('listview');
+	let addSongView = document.getElementById('addView');
+		for (let i = 0; i < listViewClasses.length; i++) {
+		listViewClasses[i].classList.add('hidden');
+	 }
+		addSongView.classList.remove('hidden');
+}
+
+function hideAddSongView () {
+	let listViewClasses = document.getElementsByClassName('listview');
+	let addSongView = document.getElementById('addView');
+		for (let i = 0; i < listViewClasses.length; i++) {
+		listViewClasses[i].classList.remove('hidden');
+	 }
+		addSongView.classList.add('hidden');
+}
+
+let addLink = document.getElementById('addMusicLink');
+addLink.addEventListener('click', hideListView);
+
+let listLink = document.getElementById('listViewLink');
+listLink.addEventListener('click', hideAddSongView);
 
 
 
