@@ -1,3 +1,7 @@
+body{
+	font-family: sans-serif;
+}
+
 .main {
 	display: flex;
 	flex-flow: row wrap;
@@ -12,17 +16,33 @@ nav {
 	top: 0;
 	left: 0;
 	right: 0;
+	box-sizing: border-box;
 }
 
 .navItems {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: space-around;
+	padding-left: 0;
+	position: relative;
+	bottom: 3px;
+	right: 30px;
 }
 
 .navItems li {
 	list-style: none;
-	padding: 0 5%;
+}
+
+.navItems li a {
+	text-decoration: none;
+	font-size: 1.2em;
+	color: #000;
+	position: absolute;
+}
+
+.navItems li a:hover {
+	text-decoration: underline;
+	font-weight: 600;
 }
 
 .bodyWrap {
@@ -59,7 +79,7 @@ p.strong {
 .controls {
 	background: #4DD7FA;
 	border: 2px solid black;
-	width: 25%	
+	width: 22%	
 }
 
 .controls label {
@@ -102,7 +122,8 @@ p.strong {
 	width: 50%;
 	height: 25px;
 	font-size: .9em;
-	margin-bottom: 5%;
+	margin-top: 10%;
+	margin-bottom: 1%;
 }
 
 label[for=genre] {
