@@ -1,0 +1,32 @@
+ {
+  "songs": [
+    {     
+      "name": "The Walk",
+      "artist": "Mayer Hawthorne",
+      "album": "How Do You Do",
+      "genre": "Country"
+    },
+    {
+      "name": "Medicine",
+      "artist": "Grace Potter",
+      "album": "Grace Potter and the Nocturnals",
+      "genre": "Folk"
+    },
+    {
+      "name": "Legs",
+      "artist": "ZZ Top",
+      "album": "Eliminator",
+      "genre": "Rock"
+    },{
+    "name": "Give it to me baby",
+    "artist": "Rick James",
+    "album": "Funk Forever",
+    "genre": "Funk"
+  },{
+    "name": "Nevermind",
+    "artist": "Nirvana",
+    "album": "Bleach",
+    "genre": "Grunge"
+  }
+ ]
+}

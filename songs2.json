@@ -1,0 +1,25 @@
+{
+ "songs2": [
+ {
+    "name": "Buena",
+    "artist": "Morphine",
+    "album": "Morphine",
+    "genre": "Alt-Rock"
+  },{
+    "name": "Let's stay together",
+    "artist": "Al Green",
+    "album": "Yesteryear",
+    "genre": "Panty-Dropping"
+  },{
+    "name": "Made up Song title here",
+    "artist": "Me First and the Gimmie Gimmies",
+    "album": "Nonya",
+    "genre": "Rock"
+  },{
+    "name": "Made up Song title here",
+    "artist": "Me First and the Gimmie Gimmies",
+    "album": "Nonya",
+    "genre": "Rock"
+  }
+ ]
+}
