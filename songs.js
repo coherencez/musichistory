@@ -1,17 +1,21 @@
 function showAddView () {
 	let listViewClasses = document.getElementsByClassName('listview');
+	let addButton = document.getElementById('moreSongs');
 	let addSongView = document.getElementById('addView');
 		for (let i = 0; i < listViewClasses.length; i++) {
 		listViewClasses[i].classList.add('hidden');
+		addButton.classList.add('hidden');
 	 }
 		addSongView.classList.remove('hidden');
 }
 
 function showListView () {
 	let listViewClasses = document.getElementsByClassName('listview');
+	let addButton = document.getElementById('moreSongs');
 	let addSongView = document.getElementById('addView');
 		for (let i = 0; i < listViewClasses.length; i++) {
 		listViewClasses[i].classList.remove('hidden');
+		addButton.classList.remove('hidden');
 	 }
 		addSongView.classList.add('hidden');
 }
@@ -151,15 +155,16 @@ function buttonClick (event) {
     console.log(event);
 	let secondRequest = new XMLHttpRequest();
 
-    secondRequest.addEventListener('load', loadMoreSongs);
-    secondRequest.addEventListener('error', XHRfail);
-    secondRequest.open('GET', 'songs2.json');
-    secondRequest.send();
+  secondRequest.addEventListener('load', loadMoreSongs);
+  secondRequest.addEventListener('error', XHRfail);
+  secondRequest.open('GET', 'songs2.json');
+  secondRequest.send();
 
 }
 
 var addSongsButton = document.getElementById('moreSongs');
 addSongsButton.addEventListener('click', buttonClick);
+
 console.log(addSongsButton);
 
 
