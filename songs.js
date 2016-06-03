@@ -1,53 +1,4 @@
-var songs = [
-	{
-		name: 'Give it to me baby',
-		artist: 'Rick James',
-		album: 'Funk Forever',
-		genre: 'Funk'
-	},
-	{
-		name: 'Nevermind',
-		artist: 'Nirvana',
-		album: 'Bleach',
-		genre: 'Grunge'
-	},
-	{
-		name: 'Buena',
-		artist: 'Morphine',
-		album: 'Morphine',
-		genre: 'Alt-Rock'
-	},
-	{
-		name: 'Let\'s stay together',
-		artist: 'Al Green',
-		album: 'Yesteryear',
-		genre: 'Panty-Dropping'
-	},
-	{
-		name: 'Made up Song title here',
-		artist: 'Me First and the Gimmie Gimmies',
-		album: 'Nonya',
-		genre: 'Rock'
-	},
-];
-
-songs.forEach(function (songsObj) {
-	let outputArticle = document.getElementById('mainBody');
-
-	outputArticle.innerHTML += ` 
-						<section class="songSection">
-							<p class="strong">${songsObj.name}</p>
-							<p>${songsObj.artist}</p>
-								<p><strong>|</strong></p>
-							<p>${songsObj.album}</p>
-								<p><strong>|</strong></p>
-							<p>${songsObj.genre}</p>
-						</section>`;
-});
-
-
-
-function hideListView () {
+function showAddView () {
 	let listViewClasses = document.getElementsByClassName('listview');
 	let addSongView = document.getElementById('addView');
 		for (let i = 0; i < listViewClasses.length; i++) {
@@ -56,7 +7,7 @@ function hideListView () {
 		addSongView.classList.remove('hidden');
 }
 
-function hideAddSongView () {
+function showListView () {
 	let listViewClasses = document.getElementsByClassName('listview');
 	let addSongView = document.getElementById('addView');
 		for (let i = 0; i < listViewClasses.length; i++) {
@@ -68,16 +19,12 @@ function hideAddSongView () {
 function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
 
 	let outputArticle = document.getElementById('mainBody');
-
 	let newObj = {
 								name: newSong,
 								artist: newArtist,
 								album: newAlbum,
 								genre: newGenre
 							};
-
-	songs.push(newObj);	
-	console.log(songs);
 
 	outputArticle.innerHTML += ` 
 						<section class="songSection">
@@ -105,20 +52,118 @@ function validateFields () {
 			artist.value = '';
 			album.value = '';
 			genre.value = '';
-			
 }
 
+function parseJSON (event) {
+  // console.log(this.responseText);
+  // console.log(event);
+  let outputArticle = document.getElementById('mainBody');
+	let response = JSON.parse(event.target.responseText);
+	// console.log("parsed json", response);
 
+	for (var obj in response) {
+		// console.log(response[obj][0].name)
+		for (var i = 0; i < response[obj].length; i++) {
+			// console.log(response[obj][i].name);
+			outputArticle.innerHTML += ` 
+						<section class="songSection">
+							<p class="strong">${response[obj][i].name}</p>
+							<p>${response[obj][i].artist}</p>
+								<p><strong>|</strong></p>
+							<p>${response[obj][i].album}</p>
+								<p><strong>|</strong></p>
+							<p>${response[obj][i].genre}</p>
+						</section>`;
+		}
+	}
+} 
 
+function loadMoreSongs () {
+  // console.log(this.responseText);
+  // console.log(event);
+  let outputArticle = document.getElementById('mainBody');
+	let response = JSON.parse(this.responseText);
+	// console.log("parsed json", response);
 
-let addSong = document.getElementById('addSongsButton');
+	for (var obj in response) {
+		// console.log(response[obj][0].name)
+		for (var i = 0; i < response[obj].length; i++) {
+			// console.log(response[obj][i].name);
+			outputArticle.innerHTML += ` 
+						<section class="songSection">
+							<p class="strong">${response[obj][i].name}</p>
+							<p>${response[obj][i].artist}</p>
+								<p><strong>|</strong></p>
+							<p>${response[obj][i].album}</p>
+								<p><strong>|</strong></p>
+							<p>${response[obj][i].genre}</p>
+						</section>`;
+		}
+	}
+} 
+
+function XHRfail () {
+	let outputArticle = document.getElementById('mainBody');
+	outputArticle.innerHTML += `<h3>404 file not found</h3>`;
+}
+
+// function appendDeleteButton () {
+// 	let songDiv = document.getElementsByClassName('songSection');
+// 	console.log(songDiv);
+// 	for (var i = 0; i < songDiv.length; i++) {
+// 	}
+// }
+
+// appendDeleteButton();
+
+var addSong = document.getElementById('addSongsButton');
 addSong.addEventListener('click', validateFields);
 
-let addLink = document.getElementById('addMusicLink');
-addLink.addEventListener('click', hideListView);
+var addLink = document.getElementById('addMusicLink');
+addLink.addEventListener('click', showAddView);
 
-let listLink = document.getElementById('listViewLink');
-listLink.addEventListener('click', hideAddSongView);
+var listLink = document.getElementById('listViewLink');
+listLink.addEventListener('click', showListView);
+
+
+
+
+
+
+
+
+
+// Create an XHR object
+var myRequest = new XMLHttpRequest();
+
+// XHR objects emit events when their operation is complete, or an error occurs
+myRequest.addEventListener('load', parseJSON);
+myRequest.addEventListener('error', XHRfail);
+
+// Then tell the XHR object exactly what to do
+myRequest.open('GET', 'songs.json');
+
+// Tell the XHR object to start
+myRequest.send();
+
+
+function buttonClick (event) {
+    console.log(event);
+let secondRequest = new XMLHttpRequest();
+
+    secondRequest.addEventListener('load', loadMoreSongs);
+    secondRequest.addEventListener('error', XHRfail);
+    secondRequest.open('GET', 'songs2.json');
+    secondRequest.send();
+
+}
+
+var addSongsButton = document.getElementById('moreSongs');
+addSongsButton.addEventListener('click', buttonClick);
+console.log(addSongsButton);
+
+
+
 
 
 
