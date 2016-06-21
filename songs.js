@@ -1,28 +1,26 @@
+$(function (){ 
+
 function showAddView () {
-	let listViewClasses = document.getElementsByClassName('listview');
-	let addButton = document.getElementById('moreSongs');
-	let addSongView = document.getElementById('addView');
-		for (let i = 0; i < listViewClasses.length; i++) {
-		listViewClasses[i].classList.add('hidden');
-		addButton.classList.add('hidden');
-	 }
-		addSongView.classList.remove('hidden');
+	let listViewClasses = $('.listview');
+	let addButton = $('#moreSongs');
+	let addSongView = $('#addView');
+		listViewClasses.toggleClass('hidden');
+		addButton.toggleClass('hidden');
+		addSongView.toggleClass('hidden');
 }
 
 function showListView () {
-	let listViewClasses = document.getElementsByClassName('listview');
-	let addButton = document.getElementById('moreSongs');
-	let addSongView = document.getElementById('addView');
-		for (let i = 0; i < listViewClasses.length; i++) {
-		listViewClasses[i].classList.remove('hidden');
-		addButton.classList.remove('hidden');
-	 }
-		addSongView.classList.add('hidden');
+	let listViewClasses = $('.listview');
+	let addButton = $('#moreSongs');
+	let addSongView = $('#addView');
+		listViewClasses.toggleClass('hidden');
+		addButton.toggleClass('hidden');
+		addSongView.toggleClass('hidden');
 }
 
 function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
 
-	let outputArticle = document.getElementById('mainBody');
+	let outputArticle = $('#mainBody');
 	let newObj = {
 								name: newSong,
 								artist: newArtist,
@@ -30,7 +28,7 @@ function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
 								genre: newGenre
 							};
 
-	outputArticle.innerHTML += ` 
+	outputArticle.append( ` 
 						<section class="songSection">
 							<p class="strong">${newObj.name}</p>
 							<p>${newObj.artist}</p>
@@ -38,61 +36,56 @@ function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
 							<p>${newObj.album}</p>
 								<p><strong>|</strong></p>
 							<p>${newObj.genre}</p>
-						</section>`;
+						</section>`);
 }
 
 function validateFields () {
 
-	let songName = document.getElementById('input-1'),
-	    artist = document.getElementById('input-2'),
-	    album = document.getElementById('input-3'),
-	    genre = document.getElementById('input-4');
+	let songName = $('#input-1'),
+	    artist = $('#input-2'),
+	    album = $('#input-3'),
+	    genre = $('#input-4');
 
-	let newSong = songName.value, newArtist = artist.value, newAlbum = album.value, newGenre = genre.value;
+	let newSong = songName.val(), newArtist = artist.val(), newAlbum = album.val(), newGenre = genre.val();
 
 			buildSongObj(newSong, newArtist, newAlbum, newGenre);
 
-			songName.value = '';
-			artist.value = '';
-			album.value = '';
-			genre.value = '';
+			songName.val('');
+			artist.val('');
+			album.val('');
+			genre.val('');
 }
 
-function parseJSON (event) {
+function parseJSON () {
   // console.log(this.responseText);
   // console.log(event);
-  let outputArticle = document.getElementById('mainBody');
-	let response = JSON.parse(event.target.responseText);
-	// console.log("parsed json", response);
+  let outputArticle = $('#mainBody');
+	// let response = this;
+	// for (var obj in response) {
+	// 	// console.log(response[obj][0].name)
+	// 	for (var i = 0; i < response[obj].length; i++) {
+	// 		// console.log(response[obj][i].name);
 
-	for (var obj in response) {
-		// console.log(response[obj][0].name)
-		for (var i = 0; i < response[obj].length; i++) {
-			// console.log(response[obj][i].name);
-			outputArticle.innerHTML += ` 
-						<section class="songSection">
-							<p class="strong">${response[obj][i].name}</p>
-							<p>${response[obj][i].artist}</p>
-								<p><strong>|</strong></p>
-							<p>${response[obj][i].album}</p>
-								<p><strong>|</strong></p>
-							<p>${response[obj][i].genre}</p>
-						</section>`;
-		}
-	}
+	// 		outputArticle.innerHTML += ` 
+	// 					<section class="songSection">
+	// 						<p class="strong">${response[obj][i].name}</p>
+	// 						<p>${response[obj][i].artist}</p>
+	// 							<p><strong>|</strong></p>
+	// 						<p>${response[obj][i].album}</p>
+	// 							<p><strong>|</strong></p>
+	// 						<p>${response[obj][i].genre}</p>
+	// 					</section>`;
+	// 	}
+	// }
 } 
 
 function loadMoreSongs () {
-  // console.log(this.responseText);
-  // console.log(event);
   let outputArticle = document.getElementById('mainBody');
 	let response = JSON.parse(this.responseText);
-	// console.log("parsed json", response);
 
 	for (var obj in response) {
-		// console.log(response[obj][0].name)
 		for (var i = 0; i < response[obj].length; i++) {
-			// console.log(response[obj][i].name);
+
 			outputArticle.innerHTML += ` 
 						<section class="songSection">
 							<p class="strong">${response[obj][i].name}</p>
@@ -107,48 +100,33 @@ function loadMoreSongs () {
 } 
 
 function XHRfail () {
-	let outputArticle = document.getElementById('mainBody');
-	outputArticle.innerHTML += `<h3>404 file not found</h3>`;
+	let outputArticle = $('#mainBody');
+	outputArticle.html( `<h3>404 file not found</h3>`);
 }
 
-// function appendDeleteButton () {
-// 	let songDiv = document.getElementsByClassName('songSection');
-// 	console.log(songDiv);
-// 	for (var i = 0; i < songDiv.length; i++) {
-// 	}
-// }
+var addSong = $('#addSongsButton');
+addSong.on('click', validateFields);
 
-// appendDeleteButton();
+var addLink = $('#addMusicLink');
+addLink.on('click', showAddView);
 
-var addSong = document.getElementById('addSongsButton');
-addSong.addEventListener('click', validateFields);
-
-var addLink = document.getElementById('addMusicLink');
-addLink.addEventListener('click', showAddView);
-
-var listLink = document.getElementById('listViewLink');
-listLink.addEventListener('click', showListView);
+var listLink = $('#listViewLink');
+listLink.on('click', showListView);
 
 
 
+// // XHR objects emit events when their operation is complete, or an error occurs
+// myRequest.addEventListener('load', parseJSON);
+// myRequest.addEventListener('error', XHRfail);
+
+$.ajax({
+	url: 'songs.js'
+})
+.done(function () {
+	parseJSON();
+});
 
 
-
-
-
-
-// Create an XHR object
-var myRequest = new XMLHttpRequest();
-
-// XHR objects emit events when their operation is complete, or an error occurs
-myRequest.addEventListener('load', parseJSON);
-myRequest.addEventListener('error', XHRfail);
-
-// Then tell the XHR object exactly what to do
-myRequest.open('GET', 'songs.json');
-
-// Tell the XHR object to start
-myRequest.send();
 
 
 function buttonClick (event) {
@@ -167,7 +145,7 @@ addSongsButton.addEventListener('click', buttonClick);
 
 console.log(addSongsButton);
 
-
+});
 
 
 
