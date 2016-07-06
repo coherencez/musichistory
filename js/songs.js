@@ -1,5 +1,6 @@
 'use strict';
 $(function (){ 
+
 function showAddView () {
 	let listViewClasses = $('.listview');
 	let addButton = $('#moreSongs');
@@ -116,11 +117,11 @@ $.ajax({
 
 
 
-function buttonClick (event) {
+function buttonClick () {
 	$.ajax({
 		url: 'js/songs2.json'
-	}).done(function (e) {
-		loadMoreSongs(e);
+	}).done(function (data) {
+		loadMoreSongs(data);
 	});	
 }
 
