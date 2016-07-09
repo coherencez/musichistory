@@ -1,38 +1,29 @@
 'use strict';
 const loadSongs = require('./loadSongs');
 
-function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
-
-	let outputArticle = $('#mainBody');
-	let newObj = {
-								name: newSong,
-								artist: newArtist,
-								album: newAlbum,
-								genre: newGenre
-							};
-
-	outputArticle.append( ` 
+function addToSongList (songObj) {
+	$('#mainBody').append( ` 
 						<section class="songSection">
-							<p class="strong">${newObj.name}</p>
-							<p>${newObj.artist}</p>
+							<p class="strong">${songObj.name}</p>
+							<p>${songObj.artist}</p>
 								<p><strong>|</strong></p>
-							<p>${newObj.album}</p>
+							<p>${songObj.album}</p>
 								<p><strong>|</strong></p>
-							<p>${newObj.genre}</p>
+							<p>${songObj.genre}</p>
 						</section>`);
 }
 
+function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
+	// format user song into POJO for use in DOM
+	let newObj = {name: newSong, artist: newArtist, album: newAlbum, genre: newGenre};
+	// add new song obj to private array of existing songs
+	loadSongs.addSong(newObj);
+	// populate DOM list with new song
+	addToSongList(newObj);
+}
+
 function validateFields () {
-
-	let songName = $('#input-1'),
-	    artist = $('#input-2'),
-	    album = $('#input-3'),
-	    genre = $('#input-4');
-
-	let newSong = songName.val(), 
-			newArtist = artist.val(), 
-			newAlbum = album.val(), 
-			newGenre = genre.val();
+	let newSong = $('#input-1').val(), newArtist = $('#input-2').val(), newAlbum = $('#input-3').val(), newGenre = $('#input-4').val();
 
 			buildSongObj(newSong, newArtist, newAlbum, newGenre);
 
@@ -42,4 +33,4 @@ function validateFields () {
 			genre.val('');
 }
 
-$('#addSongsButton').on('click', validateFields);
+module.exports = {validateFields};

@@ -17,6 +17,7 @@ function showListView () {
 
 $('#addMusicLink').on('click', showAddView);
 $('#listViewLink').on('click', showListView);
+$('#addSongsButton').on('click', addSongs.validateFields);
 
 $('#profileLink').on('click', () => {
 	console.log(loadSongs.getSongs());
