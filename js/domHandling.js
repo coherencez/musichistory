@@ -1,5 +1,6 @@
 'use strict';
 const loadSongs = require('./loadSongs');
+const addSongs = require('./addSongs');
 
 
 function showAddView () {
@@ -15,7 +16,7 @@ function showListView () {
 }
 
 $('#addMusicLink').on('click', showAddView);
-$('#listViewLink').on('click', () => showListView);
+$('#listViewLink').on('click', showListView);
 
 $('#profileLink').on('click', () => {
 	console.log(loadSongs.getSongs());
