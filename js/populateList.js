@@ -1,9 +1,11 @@
 'use strict';
 function populateList (songs) {
-  let	htmlString = '';
-  
+  let	songListString = '',
+      artistChoiceString = '',
+      albumChoiceString = '';
+
   songs.forEach((v,i) => {
-	   htmlString += `<section class="songSection">
+	   songListString += `<section class="songSection">
   	   							   	<p class="strong">${songs[i].name}</p>
   	   							   	<p>${songs[i].artist}</p>
   	   							   	<p><strong>|</strong></p>
@@ -11,8 +13,14 @@ function populateList (songs) {
   	   							   	<p><strong>|</strong></p>
   	   							   	<p>${songs[i].genre}</p>
 	 		  					   </section>`;
+    artistChoiceString += `<option value="${songs[i].artist}" id="artistOpt-${i}">${songs[i].artist}</option>`; 
+    albumChoiceString += `<option value="${songs[i].album}" id="albumOpt-${i}">${songs[i].album}</option>`; 
   });
-  $('#mainBody').append(htmlString);
+  $('#mainBody').append(songListString);
+  $('#artistSelect').append(artistChoiceString);
+  $('#albumSelect').append(albumChoiceString);
 } 
+
+
 
 module.exports = populateList;

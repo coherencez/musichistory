@@ -2,6 +2,9 @@
 const loadSongs = require('./loadSongs');
 
 function addToSongList (songObj) {
+var data = loadSongs.getSongs(),
+		counter = data.length - 1;
+
 	$('#mainBody').append( ` 
 						<section class="songSection">
 							<p class="strong">${songObj.name}</p>
@@ -11,6 +14,8 @@ function addToSongList (songObj) {
 								<p><strong>|</strong></p>
 							<p>${songObj.genre}</p>
 						</section>`);
+	$('#artistSelect').append(`<option value="${songObj.artist}" id="artistOpt-${counter}">${songObj.artist}</option>`);
+  $('#albumSelect').append(`<option value="${songObj.album}" id="albumOpt-${counter}">${songObj.album}</option>`);
 }
 
 function buildSongObj (newSong, newArtist, newAlbum, newGenre) {
@@ -27,10 +32,10 @@ function validateFields () {
 
 			buildSongObj(newSong, newArtist, newAlbum, newGenre);
 
-			songName.val('');
-			artist.val('');
-			album.val('');
-			genre.val('');
+			$('#input-1').val('');
+			$('#input-2').val('');
+			$('#input-3').val('');
+			$('#input-4').val('');
 }
 
 module.exports = {validateFields};

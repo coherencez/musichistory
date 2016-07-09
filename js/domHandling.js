@@ -4,15 +4,13 @@ const addSongs = require('./addSongs');
 
 
 function showAddView () {
-	$('.listview').toggleClass('hidden');
-	$('#moreSongs').toggleClass('hidden');
-	$('#addView').toggleClass('hidden');
+	$('.listview').hide();
+	$('#addView').show();
 }
 
 function showListView () {
-	$('.listview').toggleClass('hidden');
-	$('#moreSongs').toggleClass('hidden');
-	$('#addView').toggleClass('hidden');
+	$('.listview').show();
+	$('#addView').hide();
 }
 
 $('#addMusicLink').on('click', showAddView);
@@ -22,6 +20,10 @@ $('#addSongsButton').on('click', addSongs.validateFields);
 $('#profileLink').on('click', () => {
 	console.log(loadSongs.getSongs());
 });
+
+
+
+
 
 
 
