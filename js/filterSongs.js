@@ -7,7 +7,7 @@ $('#filterButton').on('click', () => {
 	let artistChoice = $('#artistSelect').val(),
 			albumChoice = $('#albumSelect').val(),
 			songData = loadSongs.getSongs(),
-			filteredSongs = songData.filter((songs) => {return songs.artist === artistChoice}); 
+			filteredSongs = songData.filter(songs => songs.artist === artistChoice); 
 
 			$('#mainBody').empty();
 			populateList(filteredSongs);
