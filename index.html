@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 				<ul class="navItems">
 					<li class="nav-1"><a href="#" id="listViewLink">List View</a></li>
 					<li class="nav-2"><a href="#" id="addMusicLink">Add Music</a></li>
-					<li class="nav-3"><a href="#">Profile</a></li>
+					<li class="nav-3"><a href="#" id="profileLink">Profile</a></li>
 				</ul>
 				</bgsection>
 			</nav>
@@ -36,18 +36,14 @@
 									<section class="selectGroup">
 										<label for="artist">
 											Artist:
-											<select name="artist" id="">
-												<option value="">Blah</option>
-												<option value="">Blah</option>
-												<option value="">Blah</option>
+											<select name="artist" id="artistSelect">
+												<option value="" selected disabled>Select Artist</option>
 											</select>
 										</label>
 										<label for="album">
 											Album:
-											<select name="album" id="">
-												<option value="">Blah</option>
-												<option value="">Blah</option>
-												<option value="">Blah</option>
+											<select name="album" id="albumSelect">
+												<option value="" selected disabled>Select Album</option>
 											</select>
 										</label>
 									</section>
@@ -65,14 +61,14 @@
 											<label for="hipHop"><input type="checkbox" name="hipHop" value="hipHop">&nbsp;Hip Hop</label>
 										</section>
 									 </section>
-									<button type="">Filter</button>
+									<button type="" id="filterButton">Filter</button>
 								</article>
-								<button id="moreSongs">More</button>
 								<article id="mainBody" class="mainBody listview">
 								</article>
 					</div>
 				</div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="js/songs.js"></script>
+<!-- <script src="js/songs.js"></script> -->
+<script src="dist/bundle.js"></script>
 </body>
 </html>
